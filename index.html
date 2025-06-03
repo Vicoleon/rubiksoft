@@ -1071,18 +1071,18 @@
             }
             
             function updateThermometer(score) {
-                const percentage = (score / 100) * 100;
+                const percentage = score; // score is already 0-100, no need to convert
                 thermometerFill.style.height = `${percentage}%`;
                 leadScore.textContent = `${score} / 100`;
                 
-                // Update color and icon
+                // Update color and icon - preserve base classes
                 if (percentage >= 75) {
                     thermometerFill.className = 'w-full bg-red-500 transition-all duration-500 ease-out';
                     thermometerIcon.className = 'fas fa-thermometer-full text-3xl mt-3 mb-1 text-red-500';
                     leadTemperature.textContent = isSpanish ? '🔥 ¡Lead Caliente!' : '🔥 Hot Lead!';
                 } else if (percentage >= 50) {
-                    thermometerFill.className = 'w-full bg-orange-500 transition-all duration-500 ease-out';
-                    thermometerIcon.className = 'fas fa-thermometer-three-quarters text-3xl mt-3 mb-1 text-orange-500';
+                    thermometerFill.className = 'w-full bg-yellow-500 transition-all duration-500 ease-out'; // Changed from orange-500
+                    thermometerIcon.className = 'fas fa-thermometer-three-quarters text-3xl mt-3 mb-1 text-yellow-500'; // Changed from orange-500
                     leadTemperature.textContent = isSpanish ? '🌡️ Lead Tibio' : '🌡️ Warm Lead';
                 } else if (percentage >= 25) {
                     thermometerFill.className = 'w-full bg-yellow-400 transition-all duration-500 ease-out';
@@ -1098,7 +1098,7 @@
             // Function to update thermometer text when language changes
             window.updateThermometerText = function() {
                 if (leadTemperature) {
-                    const currentPercentage = (currentScore / 100) * 100;
+                    const currentPercentage = currentScore; // currentScore is already 0-100
                     if (currentPercentage >= 75) {
                         leadTemperature.textContent = isSpanish ? '🔥 ¡Lead Caliente!' : '🔥 Hot Lead!';
                     } else if (currentPercentage >= 50) {
