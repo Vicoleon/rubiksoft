@@ -309,10 +309,7 @@
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                     </button>
                 </a>
-                <button class="group relative w-full sm:w-auto px-6 py-3 border-2 border-white text-white rounded-xl font-semibold text-base hover:bg-white hover:text-indigo-900 transition-all duration-300 transform hover:scale-105 hidden">
-                    <span data-es="Ver Demo" data-en="Watch Demo">Ver Demo</span>
-                    <i class="fas fa-play ml-2 group-hover:text-indigo-900"></i>
-                </button>
+                <!-- The hidden "Ver Demo" button was here -->
             </div>
 
             <!-- Contact info with modern cards -->
@@ -690,9 +687,18 @@
                     
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="text-sm text-gray-500 self-center" data-es="O prueba un ejemplo:" data-en="Or try an example:">O prueba un ejemplo:</span>
-                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" data-query="No puedo iniciar sesión en mi cuenta, dice contraseña inválida.">No puedo iniciar...</button>
-                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" data-query="Me cobraron dos veces por mi última factura, por favor ayuden.">Doble cobro...</button>
-                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" data-query="¿Podrían agregar una función de modo oscuro a la app?">Solicitud función...</button>
+                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" 
+                                data-es="No puedo iniciar..." data-en="Can't log in..." 
+                                data-es-query="No puedo iniciar sesión en mi cuenta, dice contraseña inválida." 
+                                data-en-query="I can't log in to my account, it says invalid password.">No puedo iniciar...</button>
+                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" 
+                                data-es="Doble cobro..." data-en="Double charge..." 
+                                data-es-query="Me cobraron dos veces por mi última factura, por favor ayuden." 
+                                data-en-query="I was charged twice for my last bill, please help.">Doble cobro...</button>
+                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" 
+                                data-es="Solicitud función..." data-en="Feature request..." 
+                                data-es-query="¿Podrían agregar una función de modo oscuro a la app?" 
+                                data-en-query="Could you add a dark mode feature to the app?">Solicitud función...</button>
                     </div>
                     
                     <button id="analyzeTicket" class="w-full p-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-md shadow-md">
@@ -751,13 +757,6 @@
                     </div>
                 </div>
             </div>
-
-                                <span data-es="Reiniciar Animación" data-en="Restart Animation">Reiniciar Animación</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -797,7 +796,7 @@
             <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center text-white">
                 <h2 class="text-4xl font-bold mb-6" data-es="¡Comience Hoy Mismo!" data-en="Get Started Today!">¡Comience Hoy Mismo!</h2>
                 <p class="text-xl mb-8 opacity-90" data-es="Transforme su negocio con la potencia de los Agentes IA. Contáctenos para una consulta gratuita." data-en="Transform your business with the power of AI Agents. Contact us for a free consultation.">Transforme su negocio con la potencia de los Agentes IA. Contáctenos para una consulta gratuita.</p>
-                <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                <div class="grid max-w-2xl mx-auto"> <!-- Removed md:grid-cols-2 and gap-8 -->
                     <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6">
                         <h3 class="text-xl font-semibold mb-4" data-es="Consulta Gratuita" data-en="Free Consultation">Consulta Gratuita</h3>
                         <p class="mb-4" data-es="Analizamos sus procesos y identificamos oportunidades de automatización" data-en="We analyze your processes and identify automation opportunities">Analizamos sus procesos y identificamos oportunidades de automatización</p>
@@ -805,11 +804,7 @@
                             <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" data-es="Solicitar Consulta" data-en="Request Consultation">Solicitar Consulta</button>
                         </a>
                     </div>
-                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 hidden">
-                        <h3 class="text-xl font-semibold mb-4" data-es="Demo Personalizada" data-en="Custom Demo">Demo Personalizada</h3>
-                        <p class="mb-4" data-es="Vea cómo los Agentes IA pueden resolver sus desafíos específicos" data-en="See how AI Agents can solve your specific challenges">Vea cómo los Agentes IA pueden resolver sus desafíos específicos</p>
-                        <button class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" data-es="Ver Demo" data-en="Watch Demo">Ver Demo</button>
-                    </div>
+                    <!-- Hidden div for "Demo Personalizada" was here -->
                 </div>
             </div>
         </div>
@@ -880,10 +875,8 @@
             elementsWithLang.forEach(element => {
                 if (isSpanish) {
                     element.textContent = element.getAttribute('data-es');
-                    currentLang.textContent = 'ES';
                 } else {
                     element.textContent = element.getAttribute('data-en');
-                    currentLang.textContent = 'EN';
                 }
             });
             
@@ -894,6 +887,16 @@
                     element.innerHTML = element.getAttribute('data-es-content').trim();
                 } else {
                     element.innerHTML = element.getAttribute('data-en-content').trim();
+                }
+            });
+
+            // Handle predefined query buttons
+            const predefinedQueryBtns = document.querySelectorAll('.predefined-query');
+            predefinedQueryBtns.forEach(btn => {
+                if (isSpanish) {
+                    btn.dataset.query = btn.getAttribute('data-es-query');
+                } else {
+                    btn.dataset.query = btn.getAttribute('data-en-query');
                 }
             });
             
