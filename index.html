@@ -257,9 +257,9 @@
                 <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-4 sm:mb-6 rounded-full"></div>
                 
                 <!-- Navigation Menu -->
-                <nav class="max-w-5xl mx-auto mb-4 sm:mb-6">
+                <nav class="max-w-6xl mx-auto mb-4 sm:mb-6">
                     <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl sm:rounded-2xl p-1 sm:p-2 border border-white border-opacity-20">
-                        <div class="grid grid-cols-3 sm:grid-cols-6 gap-1 sm:gap-2">
+                        <div class="grid grid-cols-3 sm:grid-cols-7 gap-1 sm:gap-2">
                             <a href="#about-agents" class="group flex flex-col items-center p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
                                 <i class="fas fa-robot text-white text-sm sm:text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
                                 <span class="text-white text-xs font-medium text-center leading-tight" data-es="Qué son" data-en="What are">Qué son</span>
@@ -279,6 +279,10 @@
                             <a href="#sales-marketing" class="group flex flex-col items-center p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
                                 <i class="fas fa-bullseye text-white text-sm sm:text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
                                 <span class="text-white text-xs font-medium text-center leading-tight" data-es="Ventas" data-en="Sales">Ventas</span>
+                            </a>
+                            <a href="#ai-demos" class="group flex flex-col items-center p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                                <i class="fas fa-play-circle text-white text-sm sm:text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
+                                <span class="text-white text-xs font-medium text-center leading-tight" data-es="Demos IA" data-en="AI Demos">Demos IA</span>
                             </a>
                             <a href="#contact" class="group flex flex-col items-center p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
                                 <i class="fas fa-envelope text-white text-sm sm:text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
@@ -522,6 +526,241 @@
         </div>
     </section>
 
+    <!-- AI in Action Section -->
+    <section id="ai-demos" class="section-padding bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold gradient-text mb-6" data-es="IA en Acción: Demos Interactivas" data-en="AI in Action: Interactive Demos">IA en Acción: Demos Interactivas</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-es="Explore estas simulaciones interactivas para ver cómo los agentes IA abordan tareas empresariales complejas y toman decisiones inteligentes." data-en="Explore these interactive simulations to see how AI agents tackle complex business tasks and make intelligent decisions.">Explore estas simulaciones interactivas para ver cómo los agentes IA abordan tareas empresariales complejas y toman decisiones inteligentes.</p>
+            </div>
+
+            <!-- Demo 1: Lead Generation Chatbot -->
+            <div class="mb-16">
+                <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-green-500">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-comments text-3xl text-green-600 mr-4"></i>
+                        <div>
+                            <h3 class="text-2xl font-bold text-green-600" data-es="Simulación 1: Chatbot de Generación de Leads IA" data-en="Simulation 1: AI Lead Generation Chatbot">Simulación 1: Chatbot de Generación de Leads IA</h3>
+                            <p class="text-gray-600 mt-2" data-es="Interactúa con nuestro Asistente de Ventas IA. Mientras respondes preguntas, observa el 'Termómetro de Potencial' actualizarse." data-en="Interact with our AI Sales Assistant. As you answer questions, watch the 'Lead Hotness Thermometer' update.">Interactúa con nuestro Asistente de Ventas IA. Mientras respondes preguntas, observa el "Termómetro de Potencial" actualizarse.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div id="chatContainer" class="h-96 border border-gray-300 rounded-lg p-4 overflow-y-auto bg-gray-50 space-y-3 mb-4">
+                                <!-- Chat messages will be added here -->
+                            </div>
+                            <div id="chatOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <!-- Options will be added here -->
+                            </div>
+                            <button id="restartChat" class="w-full mt-4 p-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm shadow-md hidden">
+                                <span data-es="Iniciar Nueva Conversación" data-en="Start New Conversation">Iniciar Nueva Conversación</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <h4 class="text-lg font-semibold text-gray-700 mb-3" data-es="Potencial del Lead" data-en="Lead Hotness">Potencial del Lead</h4>
+                            <div class="w-16 h-64 bg-gray-200 rounded-full flex flex-col-reverse overflow-hidden border-2 border-gray-300 shadow-inner">
+                                <div id="thermometerFill" class="w-full bg-blue-500 transition-all duration-500 ease-out" style="height: 0%"></div>
+                            </div>
+                            <i class="fas fa-thermometer-half text-3xl mt-3 mb-1 text-blue-500" id="thermometerIcon"></i>
+                            <p id="leadScore" class="text-2xl font-bold text-gray-700">0 / 100</p>
+                            <p id="leadTemperature" class="text-sm text-gray-500">❄️ Lead Frío</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-green-50 p-4 rounded-lg">
+                        <h5 class="font-semibold text-green-700 mb-1" data-es="Lógica del Agente (Basado en Utilidad y Reglas):" data-en="Agent's Logic (Utility-Based & Rule-Based):">Lógica del Agente (Basado en Utilidad y Reglas):</h5>
+                        <ul class="list-disc list-inside text-sm text-green-600 space-y-1" data-es-content="
+                            <li>El chatbot IA hace preguntas de calificación para entender tus necesidades (Percepción).</li>
+                            <li>Cada respuesta contribuye a un 'puntaje de lead' basado en reglas predefinidas (Toma de Decisiones).</li>
+                            <li>El 'Termómetro de Potencial' representa visualmente este puntaje (Evaluación de Utilidad).</li>
+                            <li>El objetivo del agente es identificar leads prometedores para RubikSoft.</li>
+                            <li>Basado en el puntaje final, proporciona un mensaje de cierre personalizado y sugiere próximos pasos (Acción).</li>
+                        " data-en-content="
+                            <li>The AI chatbot asks qualifying questions to understand your needs (Perception).</li>
+                            <li>Each answer contributes to a 'lead score' based on predefined rules (Decision-Making).</li>
+                            <li>The 'Hotness Thermometer' visually represents this score (Utility Assessment).</li>
+                            <li>The agent's goal is to identify promising leads for RubikSoft.</li>
+                            <li>Based on the final score, it provides a tailored closing message and suggests next steps (Action).</li>
+                        ">
+                            <li>El chatbot IA hace preguntas de calificación para entender tus necesidades (Percepción).</li>
+                            <li>Cada respuesta contribuye a un "puntaje de lead" basado en reglas predefinidas (Toma de Decisiones).</li>
+                            <li>El "Termómetro de Potencial" representa visualmente este puntaje (Evaluación de Utilidad).</li>
+                            <li>El objetivo del agente es identificar leads prometedores para RubikSoft.</li>
+                            <li>Basado en el puntaje final, proporciona un mensaje de cierre personalizado y sugiere próximos pasos (Acción).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo 2: Email Campaign Optimizer -->
+            <div class="mb-16">
+                <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-blue-500">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-envelope-open-text text-3xl text-blue-600 mr-4"></i>
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-600" data-es="Simulación 2: Optimizador de Campañas de Email IA" data-en="Simulation 2: AI Email Campaign Optimizer">Simulación 2: Optimizador de Campañas de Email IA</h3>
+                            <p class="text-gray-600 mt-2" data-es="Define líneas de asunto y llamadas a la acción (CTAs) para una campaña de email. El agente IA simulará pruebas A/B para predecir qué combinación produce mejor engagement." data-en="Define subject lines and calls-to-action (CTAs) for an email campaign. The AI agent will simulate A/B tests to predict which combination yields the best engagement.">Define líneas de asunto y llamadas a la acción (CTAs) para una campaña de email. El agente IA simulará pruebas A/B para predecir qué combinación produce mejor engagement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2" data-es="1. Agregar Líneas de Asunto (hasta 5):" data-en="1. Add Subject Lines (up to 5):">1. Agregar Líneas de Asunto (hasta 5):</h4>
+                            <div id="subjectLinesList" class="mb-2">
+                                <p class="text-sm bg-gray-100 p-1.5 rounded mb-1">¡Ahorra Grande Esta Semana!</p>
+                                <p class="text-sm bg-gray-100 p-1.5 rounded mb-1">Oferta Exclusiva Adentro</p>
+                                <p class="text-sm bg-gray-100 p-1.5 rounded mb-1">Tu Actualización Semanal</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <input type="text" id="customSubject" placeholder="Nueva línea de asunto..." class="flex-grow p-2 border rounded-md text-sm">
+                                <button id="addSubject" class="p-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600">+</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2" data-es="2. Agregar CTAs (hasta 5):" data-en="2. Add CTAs (up to 5):">2. Agregar CTAs (hasta 5):</h4>
+                            <div id="ctasList" class="mb-2">
+                                <p class="text-sm bg-gray-100 p-1.5 rounded mb-1">Comprar Ahora</p>
+                                <p class="text-sm bg-gray-100 p-1.5 rounded mb-1">Saber Más</p>
+                                <p class="text-sm bg-gray-100 p-1.5 rounded mb-1">Comenzar</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <input type="text" id="customCta" placeholder="Nuevo texto CTA..." class="flex-grow p-2 border rounded-md text-sm">
+                                <button id="addCta" class="p-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="runEmailSimulation" class="w-full p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-md shadow-md">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        <span data-es="Ejecutar Optimización IA" data-en="Run AI Optimization">Ejecutar Optimización IA</span>
+                    </button>
+                    
+                    <div id="emailSimulationStatus" class="text-center text-blue-600 mt-4 hidden">
+                        <i class="fas fa-cog animate-spin mr-2"></i>
+                        <span data-es="El Agente IA está analizando combinaciones..." data-en="AI Agent is analyzing combinations...">El Agente IA está analizando combinaciones...</span>
+                    </div>
+                    
+                    <div id="emailResults" class="mt-8 hidden">
+                        <h4 class="text-xl font-semibold text-gray-700 mb-3" data-es="Resultados de la Simulación:" data-en="Simulation Results:">Resultados de la Simulación:</h4>
+                        <div id="bestEmailCampaign" class="mb-6 p-4 bg-green-50 border-l-4 border-green-500 rounded-lg hidden">
+                            <!-- Best campaign will be shown here -->
+                        </div>
+                        <div id="allEmailResults" class="space-y-3 max-h-60 overflow-y-auto pr-2">
+                            <!-- All results will be shown here -->
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                        <h5 class="font-semibold text-blue-700 mb-1" data-es="Lógica del Agente (Aprendizaje y Basado en Utilidad):" data-en="Agent's Logic (Learning & Utility-Based):">Lógica del Agente (Aprendizaje y Basado en Utilidad):</h5>
+                        <ul class="list-disc list-inside text-sm text-blue-600 space-y-1" data-es-content="
+                            <li>El agente IA simula el envío de emails con varias combinaciones de asunto/CTA a audiencias virtuales.</li>
+                            <li>'Aprende' observando tasas simuladas de apertura y clics para cada combinación.</li>
+                            <li>Calcula un 'puntaje de engagement' (utilidad) para clasificar la efectividad de cada versión.</li>
+                            <li>El objetivo es identificar la combinación que maximice el engagement predicho.</li>
+                        " data-en-content="
+                            <li>The AI agent simulates sending emails with various subject/CTA combinations to virtual audiences.</li>
+                            <li>It 'learns' by observing simulated open and click-through rates for each combination.</li>
+                            <li>It calculates an 'engagement score' (utility) to rank the effectiveness of each version.</li>
+                            <li>The goal is to identify the combination that maximizes predicted engagement.</li>
+                        ">
+                            <li>El agente IA simula el envío de emails con varias combinaciones de asunto/CTA a audiencias virtuales.</li>
+                            <li>"Aprende" observando tasas simuladas de apertura y clics para cada combinación.</li>
+                            <li>Calcula un "puntaje de engagement" (utilidad) para clasificar la efectividad de cada versión.</li>
+                            <li>El objetivo es identificar la combinación que maximice el engagement predicho.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo 3: Support Ticket Routing -->
+            <div class="mb-16">
+                <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-purple-500">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-users text-3xl text-purple-600 mr-4"></i>
+                        <div>
+                            <h3 class="text-2xl font-bold text-purple-600" data-es="Simulación 3: Enrutador de Tickets de Soporte IA" data-en="Simulation 3: AI Support Ticket Router">Simulación 3: Enrutador de Tickets de Soporte IA</h3>
+                            <p class="text-gray-600 mt-2" data-es="Envía una consulta simulada de soporte al cliente. El agente IA analizará su contenido, la categorizará, asignará una prioridad y la dirigirá al departamento apropiado (simulado)." data-en="Submit a mock customer support query. The AI agent will analyze its content, categorize it, assign a priority, and route it to the appropriate (simulated) department.">Envía una consulta simulada de soporte al cliente. El agente IA analizará su contenido, la categorizará, asignará una prioridad y la dirigirá al departamento apropiado (simulado).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <textarea id="ticketQuery" placeholder="Escribe tu consulta de soporte aquí... ej. 'Mi cuenta está bloqueada.'" class="w-full p-2 border rounded-md text-sm h-24 resize-none"></textarea>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-sm text-gray-500 self-center" data-es="O prueba un ejemplo:" data-en="Or try an example:">O prueba un ejemplo:</span>
+                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" data-query="No puedo iniciar sesión en mi cuenta, dice contraseña inválida.">No puedo iniciar...</button>
+                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" data-query="Me cobraron dos veces por mi última factura, por favor ayuden.">Doble cobro...</button>
+                        <button class="predefined-query px-2 py-1 bg-gray-200 text-gray-700 rounded-md text-xs hover:bg-gray-300" data-query="¿Podrían agregar una función de modo oscuro a la app?">Solicitud función...</button>
+                    </div>
+                    
+                    <button id="analyzeTicket" class="w-full p-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-md shadow-md">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        <span data-es="Enviar Ticket para Enrutamiento IA" data-en="Submit Ticket for AI Routing">Enviar Ticket para Enrutamiento IA</span>
+                    </button>
+                    
+                    <div id="ticketAnalysisStatus" class="text-center text-purple-600 mt-4 hidden">
+                        <i class="fas fa-cog animate-spin mr-2"></i>
+                        <span data-es="El Agente IA está procesando tu ticket..." data-en="AI Agent is processing your ticket...">El Agente IA está procesando tu ticket...</span>
+                    </div>
+                    
+                    <div id="ticketAnalysisResults" class="mt-8 p-4 bg-purple-50 rounded-lg hidden">
+                        <h4 class="text-xl font-semibold text-gray-700 mb-3" data-es="Análisis y Enrutamiento del Agente IA:" data-en="AI Agent Analysis & Routing:">Análisis y Enrutamiento del Agente IA:</h4>
+                        <p id="analyzedQuery" class="text-sm text-gray-600 mb-3"></p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                            <div class="p-3 bg-white rounded-md shadow">
+                                <i class="fas fa-tag text-2xl mx-auto mb-1 text-purple-500"></i>
+                                <p class="text-xs text-gray-500" data-es="Categoría" data-en="Category">Categoría</p>
+                                <p id="ticketCategory" class="font-semibold text-purple-700"></p>
+                            </div>
+                            <div class="p-3 bg-white rounded-md shadow">
+                                <i id="priorityIcon" class="fas fa-clock text-2xl mx-auto mb-1 text-yellow-500"></i>
+                                <p class="text-xs text-gray-500" data-es="Prioridad" data-en="Priority">Prioridad</p>
+                                <p id="ticketPriority" class="font-semibold text-yellow-600"></p>
+                            </div>
+                            <div class="p-3 bg-white rounded-md shadow">
+                                <i class="fas fa-arrow-right text-2xl mx-auto mb-1 text-green-500"></i>
+                                <p class="text-xs text-gray-500" data-es="Dirigido a" data-en="Routed To">Dirigido a</p>
+                                <p id="ticketDepartment" class="font-semibold text-green-700"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-purple-50 p-4 rounded-lg">
+                        <h5 class="font-semibold text-purple-700 mb-1" data-es="Lógica del Agente (Basado en Modelo y Reglas):" data-en="Agent's Logic (Model-Based & Rule-Based):">Lógica del Agente (Basado en Modelo y Reglas):</h5>
+                        <ul class="list-disc list-inside text-sm text-purple-600 space-y-1" data-es-content="
+                            <li>El agente IA 'lee' tu ticket usando análisis de palabras clave (Procesamiento de Lenguaje Natural simplificado).</li>
+                            <li>Mantiene un modelo interno de tipos de problemas, indicadores de urgencia y especializaciones departamentales.</li>
+                            <li>Basado en palabras clave detectadas, categoriza el problema (ej. 'Facturación', 'Técnico').</li>
+                            <li>Evalúa prioridad usando palabras clave de urgencia (ej. 'urgente', 'no puedo iniciar sesión') y severidad de categoría.</li>
+                            <li>Finalmente, dirige el ticket al equipo más apropiado para una resolución más rápida.</li>
+                        " data-en-content="
+                            <li>The AI agent 'reads' your ticket using keyword analysis (simplified Natural Language Processing).</li>
+                            <li>It maintains an internal model of issue types, urgency indicators, and department specializations.</li>
+                            <li>Based on detected keywords, it categorizes the issue (e.g., 'Billing,' 'Technical').</li>
+                            <li>It assesses priority using urgency keywords (e.g., 'urgent,' 'can't login') and category severity.</li>
+                            <li>Finally, it routes the ticket to the most appropriate team for faster resolution.</li>
+                        ">
+                            <li>El agente IA "lee" tu ticket usando análisis de palabras clave (Procesamiento de Lenguaje Natural simplificado).</li>
+                            <li>Mantiene un modelo interno de tipos de problemas, indicadores de urgencia y especializaciones departamentales.</li>
+                            <li>Basado en palabras clave detectadas, categoriza el problema (ej. "Facturación", "Técnico").</li>
+                            <li>Evalúa prioridad usando palabras clave de urgencia (ej. "urgente", "no puedo iniciar sesión") y severidad de categoría.</li>
+                            <li>Finalmente, dirige el ticket al equipo más apropiado para una resolución más rápida.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+                                <span data-es="Reiniciar Animación" data-en="Restart Animation">Reiniciar Animación</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Benefits Section -->
     <section class="section-padding bg-gray-100">
         <div class="container mx-auto px-6">
@@ -647,7 +886,68 @@
                     currentLang.textContent = 'EN';
                 }
             });
+            
+            // Handle elements with HTML content (like the Agent's Logic sections)
+            const elementsWithHtmlContent = document.querySelectorAll('[data-es-content][data-en-content]');
+            elementsWithHtmlContent.forEach(element => {
+                if (isSpanish) {
+                    element.innerHTML = element.getAttribute('data-es-content').trim();
+                } else {
+                    element.innerHTML = element.getAttribute('data-en-content').trim();
+                }
+            });
+            
+            // Update current language indicator
+            currentLang.textContent = isSpanish ? 'ES' : 'EN';
+            
+            // Update thermometer text
+            updateThermometerText();
+            
+            // Restart chatbot demo to show new language
+            if (typeof window.restartChatbot === 'function') {
+                window.restartChatbot();
+            }
+            
+            // Update email optimizer demo
+            if (typeof window.updateEmailOptimizerText === 'function') {
+                window.updateEmailOptimizerText();
+            }
         });
+
+        // Function to update demo language
+        function updateDemoLanguage() {
+            // Update chatbot thermometer
+            if (typeof updateThermometerText === 'function') {
+                updateThermometerText();
+            }
+            
+            // Update email optimizer if visible
+            if (typeof updateEmailOptimizerText === 'function') {
+                updateEmailOptimizerText();
+            }
+            
+            // Update support ticket analyzer if visible
+            if (typeof updateSupportTicketText === 'function') {
+                updateSupportTicketText();
+            }
+        }
+
+        // Simple fallback function
+        function updateThermometerText() {
+            const leadTemperature = document.getElementById('leadTemperature');
+            if (leadTemperature && leadTemperature.textContent) {
+                const text = leadTemperature.textContent;
+                if (text.includes('🔥')) {
+                    leadTemperature.textContent = isSpanish ? '🔥 ¡Lead Caliente!' : '🔥 Hot Lead!';
+                } else if (text.includes('🌡️')) {
+                    leadTemperature.textContent = isSpanish ? '🌡️ Lead Tibio' : '🌡️ Warm Lead';
+                } else if (text.includes('🧊')) {
+                    leadTemperature.textContent = isSpanish ? '🧊 Lead Fresco' : '🧊 Cool Lead';
+                } else if (text.includes('❄️')) {
+                    leadTemperature.textContent = isSpanish ? '❄️ Lead Frío' : '❄️ Cold Lead';
+                }
+            }
+        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -684,6 +984,471 @@
                 behavior: 'smooth'
             });
         });
+        
+        // AI Demos Functionality
+        initializeAIDemos();
+        
+        function initializeAIDemos() {
+            // Demo 1: Lead Generation Chatbot
+            initializeChatbot();
+            
+            // Demo 2: Email Campaign Optimizer
+            initializeEmailOptimizer();
+            
+            // Demo 3: Support Ticket Router
+            initializeSupportTicketRouter();
+        }
+        
+        // Chatbot Demo
+        function initializeChatbot() {
+            const chatContainer = document.getElementById('chatContainer');
+            const chatOptions = document.getElementById('chatOptions');
+            const restartChatBtn = document.getElementById('restartChat');
+            const thermometerFill = document.getElementById('thermometerFill');
+            const leadScore = document.getElementById('leadScore');
+            const leadTemperature = document.getElementById('leadTemperature');
+            const thermometerIcon = document.getElementById('thermometerIcon');
+            
+            let currentScore = 0;
+            let currentQuestionIndex = 0;
+            let conversationEnded = false;
+            
+            function getQuestions() {
+                return [
+                    {
+                        text: isSpanish ? "¡Hola! Soy el Asistente de Ventas IA de RubikSoft. Puedo ayudar a ver si nuestras soluciones son adecuadas para ti. Para empezar, ¿cuál es tu objetivo principal o desafío que buscas resolver?" : "Hi there! I'm the RubikSoft AI Sales Assistant. I can help see if our solutions are a good fit for you. To start, what's your primary goal or challenge you're looking to solve?",
+                        options: [
+                            { text: isSpanish ? "Mejorar eficiencia del equipo" : "Improve team efficiency", score: 15 },
+                            { text: isSpanish ? "Reducir costos operativos" : "Reduce operational costs", score: 15 },
+                            { text: isSpanish ? "Explorar nuevas tecnologías" : "Explore new technologies", score: 10 },
+                            { text: isSpanish ? "Solo navegando" : "Just browsing", score: 5 }
+                        ]
+                    },
+                    {
+                        text: isSpanish ? "¡Interesante! ¿Cuál es el tamaño aproximado de tu empresa o equipo?" : "Interesting! And what's the approximate size of your company or team?",
+                        options: [
+                            { text: isSpanish ? "1-10 empleados" : "1-10 employees", score: 5 },
+                            { text: isSpanish ? "11-50 empleados" : "11-50 employees", score: 10 },
+                            { text: isSpanish ? "51-200 empleados" : "51-200 employees", score: 15 },
+                            { text: isSpanish ? "200+ empleados" : "200+ employees", score: 20 }
+                        ]
+                    },
+                    {
+                        text: isSpanish ? "Entendido. ¿Cuál es tu presupuesto estimado para una solución así?" : "Got it. What's your estimated budget for a solution like this?",
+                        options: [
+                            { text: isSpanish ? "Menos de $1,000" : "Under $1,000", score: 5 },
+                            { text: isSpanish ? "$1,000 - $5,000" : "$1,000 - $5,000", score: 10 },
+                            { text: isSpanish ? "$5,000 - $10,000" : "$5,000 - $10,000", score: 15 },
+                            { text: isSpanish ? "Más de $10,000" : "Over $10,000", score: 20 }
+                        ]
+                    },
+                    {
+                        text: isSpanish ? "¡Gracias! ¿Qué tan pronto buscas implementar una solución?" : "Thanks! And how soon are you looking to implement a solution?",
+                        options: [
+                            { text: isSpanish ? "Inmediatamente / Este mes" : "Immediately / This month", score: 25 },
+                            { text: isSpanish ? "En los próximos 3 meses" : "In the next 3 months", score: 15 },
+                            { text: isSpanish ? "3-6 meses" : "3-6 months", score: 10 },
+                            { text: isSpanish ? "Solo investigando por ahora" : "Just researching for now", score: 5 }
+                        ]
+                    }
+                ];
+            }
+            
+            function addMessage(text, isBot = true) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `flex ${isBot ? 'justify-start' : 'justify-end'}`;
+                
+                messageDiv.innerHTML = `
+                    ${isBot ? '<i class="fas fa-robot text-white bg-green-500 rounded-full p-2 mr-2 flex-shrink-0"></i>' : ''}
+                    <div class="p-3 rounded-lg shadow-sm max-w-xs lg:max-w-md ${isBot ? 'bg-green-100 text-green-800' : 'bg-blue-500 text-white'}">
+                        <p class="text-sm">${text}</p>
+                    </div>
+                    ${!isBot ? '<i class="fas fa-user text-white bg-blue-500 rounded-full p-2 ml-2 flex-shrink-0"></i>' : ''}
+                `;
+                
+                chatContainer.appendChild(messageDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            function updateThermometer(score) {
+                const percentage = (score / 100) * 100;
+                thermometerFill.style.height = `${percentage}%`;
+                leadScore.textContent = `${score} / 100`;
+                
+                // Update color and icon
+                if (percentage >= 75) {
+                    thermometerFill.className = 'w-full bg-red-500 transition-all duration-500 ease-out';
+                    thermometerIcon.className = 'fas fa-thermometer-full text-3xl mt-3 mb-1 text-red-500';
+                    leadTemperature.textContent = isSpanish ? '🔥 ¡Lead Caliente!' : '🔥 Hot Lead!';
+                } else if (percentage >= 50) {
+                    thermometerFill.className = 'w-full bg-orange-500 transition-all duration-500 ease-out';
+                    thermometerIcon.className = 'fas fa-thermometer-three-quarters text-3xl mt-3 mb-1 text-orange-500';
+                    leadTemperature.textContent = isSpanish ? '🌡️ Lead Tibio' : '🌡️ Warm Lead';
+                } else if (percentage >= 25) {
+                    thermometerFill.className = 'w-full bg-yellow-400 transition-all duration-500 ease-out';
+                    thermometerIcon.className = 'fas fa-thermometer-half text-3xl mt-3 mb-1 text-yellow-400';
+                    leadTemperature.textContent = isSpanish ? '🧊 Lead Fresco' : '🧊 Cool Lead';
+                } else {
+                    thermometerFill.className = 'w-full bg-blue-500 transition-all duration-500 ease-out';
+                    thermometerIcon.className = 'fas fa-thermometer-empty text-3xl mt-3 mb-1 text-blue-500';
+                    leadTemperature.textContent = isSpanish ? '❄️ Lead Frío' : '❄️ Cold Lead';
+                }
+            }
+            
+            // Function to update thermometer text when language changes
+            window.updateThermometerText = function() {
+                if (leadTemperature) {
+                    const currentPercentage = (currentScore / 100) * 100;
+                    if (currentPercentage >= 75) {
+                        leadTemperature.textContent = isSpanish ? '🔥 ¡Lead Caliente!' : '🔥 Hot Lead!';
+                    } else if (currentPercentage >= 50) {
+                        leadTemperature.textContent = isSpanish ? '🌡️ Lead Tibio' : '🌡️ Warm Lead';
+                    } else if (currentPercentage >= 25) {
+                        leadTemperature.textContent = isSpanish ? '🧊 Lead Fresco' : '🧊 Cool Lead';
+                    } else {
+                        leadTemperature.textContent = isSpanish ? '❄️ Lead Frío' : '❄️ Cold Lead';
+                    }
+                }
+            };
+            
+            function showQuestion(questionIndex) {
+                const questions = getQuestions();
+                if (questionIndex >= questions.length) {
+                    endConversation();
+                    return;
+                }
+                
+                const question = questions[questionIndex];
+                addMessage(question.text);
+                
+                chatOptions.innerHTML = '';
+                question.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.className = 'p-3 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors text-sm shadow-md font-medium';
+                    button.textContent = option.text;
+                    button.style.color = '#ffffff';
+                    button.style.backgroundColor = '#0ea5e9';
+                    button.addEventListener('click', () => selectOption(option));
+                    chatOptions.appendChild(button);
+                });
+            }
+            
+            function selectOption(option) {
+                addMessage(option.text, false);
+                currentScore = Math.min(currentScore + option.score, 100);
+                updateThermometer(currentScore);
+                currentQuestionIndex++;
+                
+                setTimeout(() => {
+                    showQuestion(currentQuestionIndex);
+                }, 500);
+            }
+            
+            function endConversation() {
+                conversationEnded = true;
+                chatOptions.innerHTML = '';
+                
+                let endMessage = '';
+                if (currentScore >= 75) {
+                    endMessage = isSpanish ? '¡Excelente! Basado en tus respuestas, pareces una excelente opción para RubikSoft! ¡Tu temperatura de lead es 🔥! ¿Te gustaría programar una breve demo con uno de nuestros especialistas?' : 'Excellent! Based on your answers, you seem like a fantastic fit for RubikSoft! Your lead temperature is ��! Would you like to schedule a brief demo with one of our specialists?';
+                } else if (currentScore >= 50) {
+                    endMessage = isSpanish ? '¡Gracias por compartir! Parece que hay buen potencial aquí. Tu temperatura de lead es 🌡️. ¿Te gustaría recibir más información o hablar con un consultor?' : 'Thanks for sharing! It looks like there\'s good potential here. Your lead temperature is 🌡️. Would you like to receive more information or talk to a consultant?';
+                } else {
+                    endMessage = isSpanish ? '¡Gracias por tu tiempo! Apreciamos que explores RubikSoft. Tu temperatura de lead es 🧊. Siéntete libre de navegar nuestros recursos o contactarnos si tienes preguntas más específicas después.' : 'Thank you for your time! We appreciate you exploring RubikSoft. Your lead temperature is 🧊. Feel free to browse our resources or reach out if you have more specific questions later.';
+                }
+                
+                addMessage(endMessage);
+                restartChatBtn.classList.remove('hidden');
+            }
+            
+            function resetChat() {
+                chatContainer.innerHTML = '';
+                chatOptions.innerHTML = '';
+                currentScore = 0;
+                currentQuestionIndex = 0;
+                conversationEnded = false;
+                updateThermometer(0);
+                restartChatBtn.classList.add('hidden');
+                showQuestion(0);
+            }
+            
+            restartChatBtn.addEventListener('click', resetChat);
+            
+            // Make reset function globally available for language switching
+            window.restartChatbot = resetChat;
+            
+            // Initialize
+            showQuestion(0);
+        }
+        
+        // Email Optimizer Demo
+        function initializeEmailOptimizer() {
+            const subjectLinesList = document.getElementById('subjectLinesList');
+            const ctasList = document.getElementById('ctasList');
+            const customSubjectInput = document.getElementById('customSubject');
+            const customCtaInput = document.getElementById('customCta');
+            const addSubjectBtn = document.getElementById('addSubject');
+            const addCtaBtn = document.getElementById('addCta');
+            const runSimulationBtn = document.getElementById('runEmailSimulation');
+            const simulationStatus = document.getElementById('emailSimulationStatus');
+            const resultsDiv = document.getElementById('emailResults');
+            const bestCampaignDiv = document.getElementById('bestEmailCampaign');
+            const allResultsDiv = document.getElementById('allEmailResults');
+            
+            function getDefaultSubjectLines() {
+                return [
+                    isSpanish ? '¡Ahorra Grande Esta Semana!' : 'Save Big This Week!',
+                    isSpanish ? 'Oferta Exclusiva Adentro' : 'Exclusive Offer Inside',
+                    isSpanish ? 'Tu Actualización Semanal' : 'Your Weekly Update'
+                ];
+            }
+            
+            function getDefaultCTAs() {
+                return [
+                    isSpanish ? 'Comprar Ahora' : 'Shop Now',
+                    isSpanish ? 'Saber Más' : 'Learn More',
+                    isSpanish ? 'Comenzar' : 'Get Started'
+                ];
+            }
+            
+            let subjectLines = getDefaultSubjectLines();
+            let ctas = getDefaultCTAs();
+            
+            function updateLists() {
+                subjectLinesList.innerHTML = subjectLines.map(s => 
+                    `<p class="text-sm bg-gray-100 p-1.5 rounded mb-1">${s}</p>`
+                ).join('');
+                
+                ctasList.innerHTML = ctas.map(c => 
+                    `<p class="text-sm bg-gray-100 p-1.5 rounded mb-1">${c}</p>`
+                ).join('');
+            }
+            
+            // Function to update email optimizer text when language changes
+            window.updateEmailOptimizerText = function() {
+                // Update default lists if they haven't been modified
+                const defaultSpanish = ['¡Ahorra Grande Esta Semana!', 'Oferta Exclusiva Adentro', 'Tu Actualización Semanal'];
+                const defaultEnglish = ['Save Big This Week!', 'Exclusive Offer Inside', 'Your Weekly Update'];
+                const defaultCTASpanish = ['Comprar Ahora', 'Saber Más', 'Comenzar'];
+                const defaultCTAEnglish = ['Shop Now', 'Learn More', 'Get Started'];
+                
+                // Check if current lists are still defaults and update if so
+                const isDefaultSubjects = subjectLines.length === 3 && 
+                    (subjectLines.every(s => defaultSpanish.includes(s)) || 
+                     subjectLines.every(s => defaultEnglish.includes(s)));
+                
+                const isDefaultCTAs = ctas.length === 3 && 
+                    (ctas.every(c => defaultCTASpanish.includes(c)) || 
+                     ctas.every(c => defaultCTAEnglish.includes(c)));
+                
+                if (isDefaultSubjects) {
+                    subjectLines = getDefaultSubjectLines();
+                }
+                
+                if (isDefaultCTAs) {
+                    ctas = getDefaultCTAs();
+                }
+                
+                updateLists();
+            };
+            
+            addSubjectBtn.addEventListener('click', function() {
+                const value = customSubjectInput.value.trim();
+                if (value && !subjectLines.includes(value) && subjectLines.length < 5) {
+                    subjectLines.push(value);
+                    customSubjectInput.value = '';
+                    updateLists();
+                }
+            });
+            
+            addCtaBtn.addEventListener('click', function() {
+                const value = customCtaInput.value.trim();
+                if (value && !ctas.includes(value) && ctas.length < 5) {
+                    ctas.push(value);
+                    customCtaInput.value = '';
+                    updateLists();
+                }
+            });
+            
+            runSimulationBtn.addEventListener('click', function() {
+                if (subjectLines.length === 0 || ctas.length === 0) return;
+                
+                simulationStatus.classList.remove('hidden');
+                resultsDiv.classList.add('hidden');
+                runSimulationBtn.disabled = true;
+                
+                setTimeout(() => {
+                    const results = [];
+                    let bestScore = -1;
+                    let bestCampaign = null;
+                    
+                    subjectLines.forEach(subject => {
+                        ctas.forEach(cta => {
+                            const openRate = Math.random() * 50 + 10;
+                            const clickThroughRate = Math.random() * (openRate / 5) + (openRate / 10);
+                            const engagementScore = (openRate * 0.4) + (clickThroughRate * 0.6);
+                            
+                            const result = { subject, cta, openRate, clickThroughRate, engagementScore };
+                            results.push(result);
+                            
+                            if (engagementScore > bestScore) {
+                                bestScore = engagementScore;
+                                bestCampaign = result;
+                            }
+                        });
+                    });
+                    
+                    results.sort((a, b) => b.engagementScore - a.engagementScore);
+                    
+                    // Show best campaign
+                    bestCampaignDiv.innerHTML = `
+                        <h5 class="text-lg font-semibold text-green-700 mb-1">🏆 ${isSpanish ? 'Recomendación Principal del Agente IA:' : 'AI Agent\'s Top Recommendation:'}</h5>
+                        <p class="text-md text-green-600">${isSpanish ? 'Asunto:' : 'Subject:'} <span class="font-medium">"${bestCampaign.subject}"</span></p>
+                        <p class="text-md text-green-600">CTA: <span class="font-medium">"${bestCampaign.cta}"</span></p>
+                        <p class="text-md text-green-600">${isSpanish ? 'Puntaje de Engagement Predicho:' : 'Predicted Engagement Score:'} <span class="font-medium">${bestCampaign.engagementScore.toFixed(2)}</span></p>
+                    `;
+                    bestCampaignDiv.classList.remove('hidden');
+                    
+                    // Show all results
+                    allResultsDiv.innerHTML = results.map(res => `
+                        <div class="p-3 rounded-md shadow-sm ${res === bestCampaign ? 'bg-green-50 ring-2 ring-green-300' : 'bg-gray-50'}">
+                            <p class="text-sm font-medium text-gray-800">${isSpanish ? 'Asunto:' : 'Subject:'} "${res.subject}" | CTA: "${res.cta}"</p>
+                            <div class="flex justify-between text-xs text-gray-600 mt-1">
+                                <span>${isSpanish ? 'Tasa de Apertura:' : 'Open Rate:'} ${res.openRate.toFixed(2)}%</span>
+                                <span>CTR: ${res.clickThroughRate.toFixed(2)}%</span>
+                                <span class="font-semibold">${isSpanish ? 'Puntaje:' : 'Score:'} ${res.engagementScore.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    simulationStatus.classList.add('hidden');
+                    resultsDiv.classList.remove('hidden');
+                    runSimulationBtn.disabled = false;
+                }, 1500);
+            });
+            
+            updateLists();
+        }
+        
+        // Support Ticket Router Demo
+        function initializeSupportTicketRouter() {
+            const ticketQueryTextarea = document.getElementById('ticketQuery');
+            const predefinedQueryBtns = document.querySelectorAll('.predefined-query');
+            const analyzeTicketBtn = document.getElementById('analyzeTicket');
+            const analysisStatus = document.getElementById('ticketAnalysisStatus');
+            const analysisResults = document.getElementById('ticketAnalysisResults');
+            
+            predefinedQueryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    ticketQueryTextarea.value = this.dataset.query;
+                });
+            });
+            
+            analyzeTicketBtn.addEventListener('click', function() {
+                const query = ticketQueryTextarea.value.trim();
+                if (!query) return;
+                
+                analysisStatus.classList.remove('hidden');
+                analysisResults.classList.add('hidden');
+                analyzeTicketBtn.disabled = true;
+                
+                setTimeout(() => {
+                    const analysis = analyzeTicket(query);
+                    showAnalysisResults(analysis);
+                    
+                    analysisStatus.classList.add('hidden');
+                    analysisResults.classList.remove('hidden');
+                    analyzeTicketBtn.disabled = false;
+                }, 1500);
+            });
+            
+            function analyzeTicket(query) {
+                let category = isSpanish ? 'Consulta General' : 'General Inquiry';
+                let priority = isSpanish ? 'Medio' : 'Medium';
+                let department = isSpanish ? 'Soporte General' : 'General Support';
+                let urgencyScore = 0;
+                
+                const lowerQuery = query.toLowerCase();
+                
+                // Technical issues
+                if (lowerQuery.includes('contraseña') || lowerQuery.includes('password') || 
+                    lowerQuery.includes('login') || lowerQuery.includes('iniciar sesión') ||
+                    lowerQuery.includes('no puedo acceder') || lowerQuery.includes('can\'t access') ||
+                    lowerQuery.includes('no carga') || lowerQuery.includes('not loading') ||
+                    lowerQuery.includes('error') || lowerQuery.includes('roto') || lowerQuery.includes('broken')) {
+                    category = isSpanish ? 'Problema Técnico' : 'Technical Issue';
+                    department = isSpanish ? 'Soporte Técnico' : 'Technical Support';
+                    urgencyScore += 3;
+                }
+                
+                // Billing issues
+                if (lowerQuery.includes('facturación') || lowerQuery.includes('billing') ||
+                    lowerQuery.includes('factura') || lowerQuery.includes('invoice') ||
+                    lowerQuery.includes('cobro') || lowerQuery.includes('charge') ||
+                    lowerQuery.includes('pago') || lowerQuery.includes('payment') ||
+                    lowerQuery.includes('reembolso') || lowerQuery.includes('refund')) {
+                    category = isSpanish ? 'Problema de Facturación' : 'Billing Issue';
+                    department = isSpanish ? 'Departamento de Cuentas' : 'Accounts Department';
+                    urgencyScore += 2;
+                }
+                
+                // Feature requests
+                if (lowerQuery.includes('solicitud de función') || lowerQuery.includes('feature request') ||
+                    lowerQuery.includes('sugerir') || lowerQuery.includes('suggest') ||
+                    lowerQuery.includes('podrían agregar') || lowerQuery.includes('could you add')) {
+                    category = isSpanish ? 'Solicitud de Función' : 'Feature Request';
+                    department = isSpanish ? 'Equipo de Producto' : 'Product Team';
+                    priority = isSpanish ? 'Bajo' : 'Low';
+                    urgencyScore += 0;
+                }
+                
+                // Urgency indicators
+                if (lowerQuery.includes('urgente') || lowerQuery.includes('urgent') ||
+                    lowerQuery.includes('asap') || lowerQuery.includes('crítico') || lowerQuery.includes('critical')) {
+                    urgencyScore += 5;
+                }
+                
+                if (lowerQuery.includes('dashboard no carga') || lowerQuery.includes('dashboard not loading') ||
+                    lowerQuery.includes('no puedo iniciar sesión') || lowerQuery.includes('can\'t log in')) {
+                    urgencyScore += 4;
+                }
+                
+                // Set priority based on score
+                if (urgencyScore >= 7) priority = isSpanish ? 'Crítico' : 'Critical';
+                else if (urgencyScore >= 4) priority = isSpanish ? 'Alto' : 'High';
+                else if (urgencyScore >= 1) priority = isSpanish ? 'Medio' : 'Medium';
+                else priority = isSpanish ? 'Bajo' : 'Low';
+                
+                // Feature requests are always low priority unless urgent
+                if (category.includes('Función') || category.includes('Feature')) {
+                    if (!(lowerQuery.includes('urgente') || lowerQuery.includes('urgent') || 
+                          lowerQuery.includes('asap') || lowerQuery.includes('crítico') || lowerQuery.includes('critical'))) {
+                        priority = isSpanish ? 'Bajo' : 'Low';
+                    }
+                }
+                
+                return { query, category, priority, department };
+            }
+            
+            function showAnalysisResults(analysis) {
+                document.getElementById('analyzedQuery').innerHTML = 
+                    `<strong>${isSpanish ? 'Tu Consulta:' : 'Your Query:'}</strong> "${analysis.query}"`;
+                document.getElementById('ticketCategory').textContent = analysis.category;
+                document.getElementById('ticketPriority').textContent = analysis.priority;
+                document.getElementById('ticketDepartment').textContent = analysis.department;
+                
+                // Update priority icon
+                const priorityIcon = document.getElementById('priorityIcon');
+                if (analysis.priority === 'Crítico' || analysis.priority === 'Critical' ||
+                    analysis.priority === 'Alto' || analysis.priority === 'High') {
+                    priorityIcon.className = 'fas fa-exclamation-triangle text-2xl mx-auto mb-1 text-red-500';
+                    document.getElementById('ticketPriority').className = 'font-semibold text-red-600';
+                } else {
+                    priorityIcon.className = 'fas fa-clock text-2xl mx-auto mb-1 text-yellow-500';
+                    document.getElementById('ticketPriority').className = 'font-semibold text-yellow-600';
+                }
+            }
+        }
         
         // Apply HubSpot form styling after form loads
         function styleHubSpotForm() {
