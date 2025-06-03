@@ -217,6 +217,11 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Go to Top Button -->
+    <button id="goToTop" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible no-print group">
+        <i class="fas fa-chevron-up text-lg group-hover:animate-bounce"></i>
+    </button>
+
     <!-- Language Toggle -->
     <div class="fixed top-4 right-4 z-50 no-print">
         <button id="langToggle" class="bg-white shadow-lg rounded-full p-3 text-gray-700 hover:text-blue-600 transition-colors">
@@ -654,6 +659,28 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+        
+        // Go to Top Button Functionality
+        const goToTopButton = document.getElementById('goToTop');
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                goToTopButton.classList.remove('opacity-0', 'invisible');
+                goToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                goToTopButton.classList.add('opacity-0', 'invisible');
+                goToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // Smooth scroll to top when clicked
+        goToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
         
