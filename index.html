@@ -214,6 +214,33 @@
         .hs-form-frame div {
             color: #1f2937 !important;
         }
+
+        .hs-form-frame div {
+            color: #1f2937 !important;
+        }
+
+        /* Styles from the new slide content */
+        .slide-enter {
+            animation: slideInUp 0.8s ease-out;
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .process-arrow {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .capability-card {
+            transition: all 0.3s ease;
+        }
+        .capability-card:hover {
+            transform: translateY(-3px); /* Adjusted to be slightly less than card-hover for variety */
+        }
+        /* End of styles from new slide content */
     </style>
 </head>
 <body class="bg-gray-50">
@@ -368,44 +395,86 @@
         </div>
     </section>
 
-    <!-- How AI Agents Work Section -->
-    <section id="how-it-works" class="section-padding bg-gray-100">
+    <!-- NEW Integrated Content: What are AI Agents? (Detailed) -->
+    <section id="new-what-are-ai-agents-detailed" class="section-padding bg-gray-50 slide-enter">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold gradient-text mb-6" data-es="¿Cómo Funcionan los Agentes IA?" data-en="How Do AI Agents Work?">¿Cómo Funcionan los Agentes IA?</h2>
+            <!-- How They Work Section -->
+            <div class="mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center gradient-text" data-es="Cómo Funcionan los Agentes IA (Paso a Paso)" data-en="How AI Agents Work (Step-by-Step)">Cómo Funcionan los Agentes IA (Paso a Paso)</h2>
+                <div class="flex flex-col md:flex-row items-stretch justify-between bg-white rounded-xl shadow-xl p-6 sm:p-8 space-y-6 md:space-y-0 md:space-x-4">
+                    <!-- Step 1 -->
+                    <div class="text-center flex-1 p-4 bg-gray-50 rounded-lg">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-upload text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1" data-es="1. Recibir Datos" data-en="1. Receive Data">1. Recibir Datos</h3>
+                        <p class="text-gray-600 text-sm" data-es="Información, tareas o solicitudes" data-en="Information, tasks or requests">Información, tareas o solicitudes</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="hidden md:flex items-center mx-3 process-arrow"> <i class="fas fa-arrow-right text-2xl text-gray-400"></i> </div>
+                    <div class="flex md:hidden items-center justify-center my-3 process-arrow"> <i class="fas fa-arrow-down text-2xl text-gray-400"></i> </div>
+                    <!-- Step 2 -->
+                    <div class="text-center flex-1 p-4 bg-gray-50 rounded-lg">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-cogs text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1" data-es="2. Procesar y Analizar" data-en="2. Process and Analyze">2. Procesar y Analizar</h3>
+                        <p class="text-gray-600 text-sm" data-es="Algoritmos IA deciden" data-en="AI algorithms decide">Algoritmos IA deciden</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="hidden md:flex items-center mx-3 process-arrow"> <i class="fas fa-arrow-right text-2xl text-gray-400"></i> </div>
+                    <div class="flex md:hidden items-center justify-center my-3 process-arrow"> <i class="fas fa-arrow-down text-2xl text-gray-400"></i> </div>
+                    <!-- Step 3 -->
+                    <div class="text-center flex-1 p-4 bg-gray-50 rounded-lg">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-play text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1" data-es="3. Ejecutar Acción" data-en="3. Execute Action">3. Ejecutar Acción</h3>
+                        <p class="text-gray-600 text-sm" data-es="Tareas automáticas" data-en="Automated tasks">Tareas automáticas</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="hidden md:flex items-center mx-3 process-arrow"> <i class="fas fa-arrow-right text-2xl text-gray-400"></i> </div>
+                    <div class="flex md:hidden items-center justify-center my-3 process-arrow"> <i class="fas fa-arrow-down text-2xl text-gray-400"></i> </div>
+                    <!-- Step 4 -->
+                    <div class="text-center flex-1 p-4 bg-gray-50 rounded-lg">
+                        <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-chart-line text-2xl text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1" data-es="4. Aprender y Mejorar" data-en="4. Learn and Improve">4. Aprender y Mejorar</h3>
+                        <p class="text-gray-600 text-sm" data-es="Optimización continua" data-en="Continuous optimization">Optimización continua</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="text-center card-hover bg-white p-6 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-blue-600">1</span>
+
+            <!-- Key Capabilities -->
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center gradient-text" data-es="Capacidades Clave de los Agentes IA" data-en="Key Capabilities of AI Agents">Capacidades Clave de los Agentes IA</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="capability-card bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-blue-500 hover:shadow-2xl">
+                        <i class="fas fa-sync text-4xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" data-es="Automatización 24/7" data-en="24/7 Automation">Automatización 24/7</h3>
+                        <p class="text-gray-600 text-sm" data-es="Trabajan continuamente sin descansos ni fatiga." data-en="Work continuously without breaks or fatigue.">Trabajan continuamente sin descansos ni fatiga.</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-es="Percepción" data-en="Perception">Percepción</h3>
-                    <p class="text-gray-600" data-es="Recopilan datos de múltiples fuentes" data-en="Collect data from multiple sources">Recopilan datos de múltiples fuentes</p>
-                </div>
-                <div class="text-center card-hover bg-white p-6 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-green-600">2</span>
+                    <div class="capability-card bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-purple-500 hover:shadow-2xl">
+                        <i class="fas fa-tachometer-alt text-4xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" data-es="Alta Velocidad y Eficiencia" data-en="High Speed & Efficiency">Alta Velocidad y Eficiencia</h3>
+                        <p class="text-gray-600 text-sm" data-es="Procesan tareas mucho más rápido que las capacidades humanas." data-en="Process tasks much faster than human capabilities.">Procesan tareas mucho más rápido que las capacidades humanas.</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-es="Análisis" data-en="Analysis">Análisis</h3>
-                    <p class="text-gray-600" data-es="Procesan información con IA avanzada" data-en="Process information with advanced AI">Procesan información con IA avanzada</p>
-                </div>
-                <div class="text-center card-hover bg-white p-6 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-purple-600">3</span>
+                    <div class="capability-card bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-green-500 hover:shadow-2xl">
+                        <i class="fas fa-bullseye text-4xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" data-es="Precisión y Consistencia" data-en="Precision & Consistency">Precisión y Consistencia</h3>
+                        <p class="text-gray-600 text-sm" data-es="Minimizan errores humanos y mantienen la calidad del trabajo." data-en="Minimize human errors and maintain work quality.">Minimizan errores humanos y mantienen la calidad del trabajo.</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-es="Decisión" data-en="Decision">Decisión</h3>
-                    <p class="text-gray-600" data-es="Toman decisiones basadas en datos" data-en="Make data-driven decisions">Toman decisiones basadas en datos</p>
-                </div>
-                <div class="text-center card-hover bg-white p-6 rounded-lg shadow-md">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-orange-600">4</span>
+                    <div class="capability-card bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-red-500 hover:shadow-2xl">
+                        <i class="fas fa-expand-arrows-alt text-4xl text-red-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" data-es="Escalabilidad Flexible" data-en="Flexible Scalability">Escalabilidad Flexible</h3>
+                        <p class="text-gray-600 text-sm" data-es="Se adaptan fácilmente para manejar cargas de trabajo crecientes o variables." data-en="Easily adapt to handle growing or variable workloads.">Se adaptan fácilmente para manejar cargas de trabajo crecientes o variables.</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-es="Acción" data-en="Action">Acción</h3>
-                    <p class="text-gray-600" data-es="Ejecutan tareas automáticamente" data-en="Execute tasks automatically">Ejecutan tareas automáticamente</p>
                 </div>
             </div>
         </div>
     </section>
+    <!-- END NEW Integrated Content -->
 
     <!-- Real Estate Section -->
     <section id="real-estate" class="section-padding bg-white">
