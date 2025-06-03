@@ -225,6 +225,38 @@
         </button>
     </div>
 
+    <!-- Navigation Menu - Moved to top -->
+    <nav class="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 no-print">
+        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-2 border border-white border-opacity-20">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                <a href="#about-agents" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                    <i class="fas fa-robot text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="text-white text-xs font-medium text-center" data-es="Qué son" data-en="What are">Qué son</span>
+                </a>
+                <a href="#how-it-works" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                    <i class="fas fa-cogs text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="text-white text-xs font-medium text-center" data-es="Cómo Funcionan" data-en="How They Work">Cómo Funcionan</span>
+                </a>
+                <a href="#real-estate" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                    <i class="fas fa-home text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="text-white text-xs font-medium text-center" data-es="Bienes Raíces" data-en="Real Estate">Bienes Raíces</span>
+                </a>
+                <a href="#efficiency" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                    <i class="fas fa-chart-line text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="text-white text-xs font-medium text-center" data-es="Eficiencia" data-en="Efficiency">Eficiencia</span>
+                </a>
+                <a href="#sales-marketing" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                    <i class="fas fa-bullseye text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="text-white text-xs font-medium text-center" data-es="Ventas" data-en="Sales">Ventas</span>
+                </a>
+                <a href="#contact" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                    <i class="fas fa-envelope text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
+                    <span class="text-white text-xs font-medium text-center" data-es="Contacto" data-en="Contact">Contacto</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header Section -->
     <header class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
         <!-- Animated background elements -->
@@ -267,7 +299,7 @@
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                     </button>
                 </a>
-                <button class="group relative px-6 py-3 border-2 border-white text-white rounded-xl font-semibold text-base hover:bg-white hover:text-indigo-900 transition-all duration-300 transform hover:scale-105">
+                <button class="group relative px-6 py-3 border-2 border-white text-white rounded-xl font-semibold text-base hover:bg-white hover:text-indigo-900 transition-all duration-300 transform hover:scale-105 hidden">
                     <span data-es="Ver Demo" data-en="Watch Demo">Ver Demo</span>
                     <i class="fas fa-play ml-2 group-hover:text-indigo-900"></i>
                 </button>
@@ -292,38 +324,6 @@
                     <p class="text-gray-200 font-medium text-sm">+506-8606-7981</p>
                 </div>
             </div>
-
-            <!-- Navigation Menu -->
-            <nav class="max-w-4xl mx-auto">
-                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-2 border border-white border-opacity-20">
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
-                        <a href="#about-agents" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                            <i class="fas fa-robot text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
-                            <span class="text-white text-xs font-medium text-center" data-es="Qué son" data-en="What are">Qué son</span>
-                        </a>
-                        <a href="#how-it-works" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                            <i class="fas fa-cogs text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
-                            <span class="text-white text-xs font-medium text-center" data-es="Cómo Funcionan" data-en="How They Work">Cómo Funcionan</span>
-                        </a>
-                        <a href="#real-estate" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                            <i class="fas fa-home text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
-                            <span class="text-white text-xs font-medium text-center" data-es="Bienes Raíces" data-en="Real Estate">Bienes Raíces</span>
-                        </a>
-                        <a href="#efficiency" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                            <i class="fas fa-chart-line text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
-                            <span class="text-white text-xs font-medium text-center" data-es="Eficiencia" data-en="Efficiency">Eficiencia</span>
-                        </a>
-                        <a href="#sales-marketing" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                            <i class="fas fa-bullseye text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
-                            <span class="text-white text-xs font-medium text-center" data-es="Ventas" data-en="Sales">Ventas</span>
-                        </a>
-                        <a href="#contact" class="group flex flex-col items-center p-3 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                            <i class="fas fa-envelope text-white text-lg mb-1 group-hover:scale-110 transition-transform duration-300"></i>
-                            <span class="text-white text-xs font-medium text-center" data-es="Contacto" data-en="Contact">Contacto</span>
-                        </a>
-                    </div>
-                </div>
-            </nav>
         </div>
 
         <!-- Bottom wave separator -->
