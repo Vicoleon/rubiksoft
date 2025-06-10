@@ -1591,6 +1591,11 @@
                 subtree: true
             });
         }
+
+        // Set initial data-query for predefined query buttons
+        document.querySelectorAll('.predefined-query').forEach(btn => {
+            btn.dataset.query = isSpanish ? btn.getAttribute('data-es-query') : btn.getAttribute('data-en-query');
+        });
     </script>
 </body>
 <!-- Google Tag Manager (noscript) -->
